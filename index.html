@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="cajagrande.css">
+    <link rel="stylesheet" href="body.css">
+    <link rel="stylesheet" href="division.css">
+    <link rel="stylesheet" href="Boton.css">
+    <link rel="stylesheet" href="aviso.css">
+    <link rel="stylesheet" href="imagenlogo.css">
+  </head>
+  <body>
+  <div class="exclamacion">
+    <img class="logoexclamacion" src="ico2.png">
+    <div class="textoexclamacion">Solo letras minúsculas y sin acentos</div> 
+    </div>
+  <div>
+    <button class="boton boton-encriptar boton-texto" onclick="encriptar()">Encriptar</button>
+    <button class="boton boton-desencriptar boton-texto"onclick="desencriptar()">Desencriptar</button>
+    <button id="copiarBoton" class="boton boton-copiar boton-texto" onclick="copiarResultado()">Copiar </button>
+    </div>
+
+  <div class="imagenlogo.css">
+    <img class="imagenlogo" src="Frame 6.png">
+    </div>
+    <textarea name="escribeaqui" rows="10" cols="50" class="ingresodetexto" placeholder="Ingrese texto aquí"></textarea>
+
+
+    <br>
+    <textarea name="respuestaaqui" rows="10" cols="50" class="textoresultado"></textarea>
+
+    
+  <div id="cajagrande">
+      <img src="Muñeco.png" alt="Muñeco" style="position: absolute; width: 336px; height: 304px; left: 32px; top: 283px;z-index: 1;">
+    </div>
+  <div style="width: 336px; height: 58px; font-family: 'Inter'; top: 600px; font-style: normal; font-weight: 700; font-size: 24px; line-height: 120%; text-align: center; color: #343A40; flex: none; order: 0; align-self: stretch; flex-grow: 0; border: none;">
+    </div>
+  <div class="division">
+  <div id=ct1  class="cuadro-texto-1">
+      <div style="line-height: 0;"><p>Ningún mensaje fue</p><p>encontrado</p></div>
+      
+    </div>
+    <div id="ct2" class="cuadro-texto-2">
+    <div style="line-height: 0;"><p>ingrese el texto que desea encriptar o</p><p>desencriptar</p></div>
+    </div>
+    </div>      
+    </div>
+    <script>
+            
+            function encriptar() {
+                      var texto = document.getElementsByName("escribeaqui")[0].value;
+                      var regex = /^[a-z\s]+$/;
+  
+                      if (!regex.test(texto)) {
+                      alert("Solo se permiten letras minúsculas. Por favor, ingrese solamente letras minúsculas.");
+                      } else if (/[A-Z]/.test(texto)) {
+                      alert("No se permiten letras mayúsculas ni caracteres especiales. Por favor, ingrese solamente letras minúsculas.");
+                      } else {
+                      var textoEncriptado = texto.replaceAll("e", "enter")
+                      .replaceAll("i", "imes")
+                      .replaceAll("a", "ai")
+                      .replaceAll("o", "ober")
+                      .replaceAll("u", "ufat");
+                      document.getElementsByName("respuestaaqui")[0].value = textoEncriptado;
+                      var muñeco = document.querySelector('img[src="Muñeco.png"]');
+                      muñeco.style.display = 'none';
+                      var texto1 = document.getElementById('ct1');
+                      texto1.style.display = 'none';
+                      var texto2 = document.getElementById('ct2');
+                      texto2.style.display = 'none';
+                      document.querySelector(".textoresultado").style.zIndex = "2";
+
+                    }
+                      }
+            function copiarResultado() {
+                     var resultado = document.getElementsByName("respuestaaqui")[0];
+                     resultado.select();
+                     document.execCommand("copy");
+                     }
+            function desencriptar() {
+                   var textoEncriptado = document.getElementsByName("escribeaqui")[0].value.toLowerCase();
+                   var texto = textoEncriptado.replaceAll("enter", "e")
+                              .replaceAll("imes", "i")
+                              .replaceAll("ai", "a")
+                              .replaceAll("ober", "o")
+                              .replaceAll("ufat", "u");
+                   document.getElementsByName("respuestaaqui")[0].value = texto;
+                 }
+        
+      </script>
+</body>
+</html>

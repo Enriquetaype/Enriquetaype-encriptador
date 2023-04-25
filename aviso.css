@@ -1,0 +1,38 @@
+.exclamacion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    position: absolute;
+    width: fit-content;
+    height: 18px;
+    left: 240px;
+    top: 851px;
+  }
+  
+  .logoexclamacion {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  
+  .textoexclamacion {
+    width: 205px;
+    height: 18px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #495057;
+    opacity: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
